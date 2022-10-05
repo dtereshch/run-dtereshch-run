@@ -1,0 +1,102 @@
+---
+title: "Exploratory analysis of my running activities"
+author: "Dmitrii Tereshchenko"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+```
+
+## Loading the data
+
+```{r}
+run_data <- read_csv("run_data.csv")
+run_data %>% glimpse()
+```
+
+## Dealing with variables
+
+```{r}
+run_data <- run_data %>% 
+  mutate(distance = replace_na(distance, 0),
+         year = year(date),
+         month = month(date),
+         week = week(date)) %>%
+  group_by(year) %>% 
+  mutate(cum_distance = cumsum(distance)) %>%
+  ungroup()
+```
+
+
+## Comparing weekly and monthly activities by year
+
+```{r}
+run_data %>% 
+  group_by(year, week) %>%
+  summarise(week_dist = sum(distance)) %>%
+  pivot_wider(id_cols = week, names_from = year, values_from = week_dist)
+```
+
+```{r}
+run_data %>% 
+  group_by(year, month) %>%
+  summarise(month_dist = sum(distance)) %>%
+  pivot_wider(id_cols = year, names_from = month, values_from = month_dist)
+```
+
+
+
+## Overall descriptive statistics by year
+
+```{r}
+run_data %>% 
+  filter(distance > 0) %>%
+  group_by(year) %>%
+  summarise(n = n(), 
+            mean = mean(distance), 
+            median = median(distance), 
+            min = min(distance),
+            max = max(distance), 
+            sum = sum(distance))
+```
+
+
+## Cumulative distance graphs by year
+
+```{r}
+run_data %>% 
+  ggplot(aes(yday(date), cum_distance, col = factor(year))) + 
+  geom_line() + 
+  labs(x = "Day", 
+       y = "Distance") + 
+  guides(col = guide_legend(title = "Year")) + 
+  theme_bw()
+```
+
+
+```{r}
+run_data %>% 
+  ggplot(aes(yday(date), cum_distance)) + 
+  geom_line() + 
+  facet_wrap(factor(year(date)) ~ .) + 
+  labs(x = "Day", 
+       y = "Distance") + 
+  theme_bw()
+```
+
+## Density plots for distance
+
+```{r}
+run_data %>% 
+  ggplot(aes(log(distance))) + 
+  geom_density() + 
+  facet_wrap(factor(year) ~ .) + 
+  theme_bw()
+```
+
+
+
+
