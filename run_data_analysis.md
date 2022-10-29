@@ -86,7 +86,7 @@ run_data %>%
     ## 4  2019   0    25.0  42.9  67.0  37.7  41.6   0    57.7  12.2 98.8  143.    0  
     ## 5  2020  32.7  65.4   6     0     0    17.8   7.6   0     0    4.19   0    34.7
     ## 6  2021  87.2  89.7  82.2  94.0  84.2  82.5  74.7 107.   95.0 87.5   98.4  25.2
-    ## 7  2022  88.3 124.  139   152.  116.  141.  136.  126.   69.1 32.0    0     0
+    ## 7  2022  88.3 124.  139   152.  116.  141.  136.  126.   69.1 38.2    0     0
 
 ## Overall descriptive statistics by year
 
@@ -111,7 +111,7 @@ run_data %>%
     ## 4  2019    79  6.66   5.83  2.46 22.5   526.
     ## 5  2020    39  4.32   3.37  1.97 12.7   168.
     ## 6  2021   242  4.16   3.94  2.06  7.22 1007.
-    ## 7  2022   181  6.20   6.24  2.5  10.9  1122.
+    ## 7  2022   182  6.20   6.22  2.5  10.9  1129.
 
 ## Cumulative distance graphs by year
 
@@ -149,6 +149,6 @@ run_data %>%
   theme_bw()
 ```
 
-    ## Warning: Removed 1819 rows containing non-finite values (stat_density).
+    ## Warning: Removed 1818 rows containing non-finite values (stat_density).
 
 ![](run_data_analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
