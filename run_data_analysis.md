@@ -55,7 +55,7 @@ run_data %>%
     ##     week `2016` `2017` `2018` `2019` `2020` `2021` `2022` `2023`
     ##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
     ##  1     1   20.7   32.1   57.5   0      0      18.0   0       6.1
-    ##  2     2   11      0     47.7   0      0      22.4   6.76    0  
+    ##  2     2   11      0     47.7   0      0      22.4   6.76    6.1
     ##  3     3    6.5    0     18.2   0     25.3    18.6  19.4     0  
     ##  4     4    7      0      0     0      7.38   20.3  41.7     0  
     ##  5     5   13.5    0      0     0      5.89   14.9  27.8     0  
@@ -87,7 +87,7 @@ run_data %>%
     ## 5  2020  32.7  65.4   6     0     0    17.8   7.6   0     0    4.19   0    34.7
     ## 6  2021  87.2  89.7  82.2  94.0  84.2  82.5  74.7 107.   95.0 87.5   98.4  25.2
     ## 7  2022  88.3 124.  139   152.  116.  141.  136.  126.   69.1 38.2    0     0  
-    ## 8  2023   6.1   0     0     0     0     0     0     0     0    0      0     0
+    ## 8  2023  12.2   0     0     0     0     0     0     0     0    0      0     0
 
 ## Overall descriptive statistics by year
 
@@ -113,7 +113,7 @@ run_data %>%
     ## 5  2020    39  4.32   3.37  1.97 12.7   168. 
     ## 6  2021   242  4.16   3.94  2.06  7.22 1007. 
     ## 7  2022   182  6.20   6.22  2.5  10.9  1129. 
-    ## 8  2023     1  6.1    6.1   6.1   6.1     6.1
+    ## 8  2023     2  6.1    6.1   6.1   6.1    12.2
 
 ## Cumulative distance graphs by year
 
@@ -151,11 +151,6 @@ run_data %>%
   theme_bw()
 ```
 
-    ## Warning: Removed 2182 rows containing non-finite values (`stat_density()`).
-
-    ## Warning: Groups with fewer than two data points have been dropped.
-
-    ## Warning in max(ids, na.rm = TRUE): у 'max' нет не пропущенных аргументов;
-    ## возвращаю -Inf
+    ## Warning: Removed 2181 rows containing non-finite values (`stat_density()`).
 
 ![](run_data_analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
